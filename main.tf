@@ -76,3 +76,10 @@ resource "aws_internet_gateway" "example" {
     Name = "example-igw"
   }
 }
+resource "aws_instance" "public" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "public"
+  }
+}
