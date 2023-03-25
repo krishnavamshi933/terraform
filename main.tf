@@ -76,12 +76,13 @@ resource "aws_internet_gateway" "example" {
     Name = "example-igw"
   }
 }
+resource "aws_key_pair" "laxmi" {
+  key_name   = "my-key-pair"
+  public_key = file("~/.ssh/id_rsa.pub")
+}
 resource "aws_instance" "public" {
   ami           = "ami-0c55b159cbfafe1f0"
   instance_type = "t2.micro"
-  tags = {
-    Name = "public"
-    key_name      = aws_key_pair.laxmi.pem
-
-  }
+  key_name      = aws_key_pair.laxmi.key_name
 }
+
