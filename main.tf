@@ -81,5 +81,7 @@ resource "aws_instance" "public" {
   instance_type = "t2.micro"
   tags = {
     Name = "public"
+    key_name      = aws_key_pair.laxmi.pem
+
   }
 }
