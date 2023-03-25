@@ -76,4 +76,3 @@ resource "aws_internet_gateway" "example" {
     Name = "example-igw"
   }
 }
-dsdd
